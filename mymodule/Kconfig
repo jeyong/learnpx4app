@@ -1,0 +1,5 @@
+menuconfig EXAMPLES_MYMODULE
+	bool "mymodule"
+	default n
+	---help---
+		Enable support for mymodule

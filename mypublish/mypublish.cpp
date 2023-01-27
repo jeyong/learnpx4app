@@ -1,7 +1,12 @@
-//#include <px4_config.h>
-//#include <px4_tasks.h>
-//#include <px4_posix.h>
+
+
+/**
+ * @file simple_c_app.c
+ * Minimal application example for PX4 autopilot
+ */
+
 #include <px4_platform_common/px4_config.h>
+#include <px4_platform_common/log.h>
 #include <px4_platform_common/tasks.h>
 #include <px4_platform_common/posix.h>
 #include <unistd.h>
@@ -13,9 +18,10 @@
 #include <uORB/uORB.h>
 #include <uORB/topics/mission_subak.h>
 
-extern "C" __EXPORT int mypub_main(int argc, char *argv[]);
 
-int mypub_main(int argc, char *argv[])
+extern "C" __EXPORT int mypublish_main(int argc, char *argv[]);
+
+int mypublish_main(int argc, char *argv[])
 {
 	PX4_INFO("mypub start!");
 

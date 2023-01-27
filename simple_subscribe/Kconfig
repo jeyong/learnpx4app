@@ -1,0 +1,5 @@
+menuconfig EXAMPLES_SIMPLE_SUBSCRIBE
+	bool "simple_subscribe"
+	default n
+	---help---
+		Enable support for simple_subscribe

@@ -1,0 +1,5 @@
+menuconfig EXAMPLES_SIMPLE_CPP_APP
+	bool "simple_cpp_app"
+	default n
+	---help---
+		Enable support for simple_cpp_app

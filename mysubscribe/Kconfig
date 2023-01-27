@@ -1,0 +1,5 @@
+menuconfig EXAMPLES_MYSUBSCRIBE
+	bool "mysubscribe"
+	default n
+	---help---
+		Enable support for mysubscribe

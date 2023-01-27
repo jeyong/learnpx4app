@@ -1,0 +1,5 @@
+menuconfig EXAMPLES_MYPUBLISH
+	bool "mypublish"
+	default n
+	---help---
+		Enable support for mypublish

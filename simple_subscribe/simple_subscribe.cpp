@@ -1,30 +1,32 @@
-//#include <px4_config.h>
-//#include <px4_tasks.h>
-//#include <px4_posix.h>
-#include <px4_platform_common/px4_config.h>
+
+
+/**
+ * @file simple_c_app.c
+ * Minimal application example for PX4 autopilot
+ */
+
+// #include <px4_platform_common/px4_config.h>
+#include <px4_platform_common/log.h>
 #include <px4_platform_common/tasks.h>
 #include <px4_platform_common/posix.h>
-
-#include <unistd.h>
-#include <stdio.h>
-#include <poll.h>
-#include <string.h>
-#include <math.h>
-
+// #include <unistd.h>
+// #include <stdio.h>
+// #include <poll.h>
+// #include <string.h>
+// #include <math.h>
 #include <uORB/uORB.h>
 #include <uORB/topics/sensor_combined.h>
+
 
 extern "C" __EXPORT int simple_subscribe_main(int argc, char *argv[]);
 
 int simple_subscribe_main(int argc, char *argv[])
 {
-	PX4_INFO("Start mysub!");
-
-    int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
-    orb_set_interval(sensor_sub_fd, 200);
+	int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
+	orb_set_interval(sensor_sub_fd, 200);
 
 	px4_pollfd_struct_t fds{};
-	
+
 	fds.fd = sensor_sub_fd;
 	fds.events = POLLIN;
 
@@ -37,14 +39,14 @@ int simple_subscribe_main(int argc, char *argv[])
 			PX4_ERR("ERROR return value from poll()");
 		} else {
 			if (fds.revents & POLLIN) {
-                struct sensor_combined_s raw;
-                orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
-                PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
-                     (double)raw.accelerometer_m_s2[0],
-                     (double)raw.accelerometer_m_s2[1],
-                     (double)raw.accelerometer_m_s2[2]);
+		struct sensor_combined_s raw;
+		orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
+		PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
+			(double)raw.accelerometer_m_s2[0],
+			(double)raw.accelerometer_m_s2[1],
+			(double)raw.accelerometer_m_s2[2]);
 			}
-		}	
+		}
 	}
 
 	PX4_INFO("exiting mysubscribe module");

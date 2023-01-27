@@ -1,13 +1,12 @@
-﻿/**
- * @file mypub_main.cpp
+
+
+/**
+ * @file simple_c_app.c
  * Minimal application example for PX4 autopilot
- *
- * @author jeyong <jeyong@subak.io>
  */
-//#include <px4_config.h>
-//#include <px4_tasks.h>
-//#include <px4_posix.h>
+
 #include <px4_platform_common/px4_config.h>
+#include <px4_platform_common/log.h>
 #include <px4_platform_common/tasks.h>
 #include <px4_platform_common/posix.h>
 #include <unistd.h>
@@ -19,11 +18,12 @@
 #include <uORB/uORB.h>
 #include <uORB/topics/mission_subak.h>
 
-extern "C" __EXPORT int mysub_main(int argc, char *argv[]);
 
-int mysub_main(int argc, char *argv[])
+extern "C" __EXPORT int mysubscribe_main(int argc, char *argv[]);
+
+int mysubscribe_main(int argc, char *argv[])
 {
-        PX4_INFO("Start mysub!");
+PX4_INFO("Start mysub!");
 
 	int mysub_fd = orb_subscribe(ORB_ID(mission_subak));
 
@@ -48,7 +48,7 @@ int mysub_main(int argc, char *argv[])
 				PX4_INFO("Get SUBAK_INFO : %d, %d", raw.x, raw.y);
 
 			}
-		}	
+		}
 	}
 
 	PX4_INFO("exiting");
