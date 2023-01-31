@@ -45,7 +45,7 @@ PX4_INFO("Start mysub!");
 				/* copy sensors raw data into local buffer */
 				orb_copy(ORB_ID(mission_subak), mysub_fd, &raw);
 
-				PX4_INFO("Get SUBAK_INFO : %d, %d", raw.x, raw.y);
+				PX4_INFO("Get SUBAK_INFO : %d, %d", (int)raw.x, (int)raw.y);
 
 			}
 		}
