@@ -25,3 +25,17 @@ https://github.com/mavlink/mavlink -> https://github.com/jeyong/mavlink
 > git commit -am "change submodule url and revision"
 > git push
 ```
+----
+# submodule 삭제하기
+1. submodule 초기화
+```bash
+> git submodule deinit -f test_app
+```
+2. .git/modules에서 삭제
+```
+> rm -rf .git/modules/test_app
+```
+3. submodule 삭제
+```
+> git rm -f test_app
+```
