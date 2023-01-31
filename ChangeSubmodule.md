@@ -22,6 +22,6 @@ https://github.com/mavlink/mavlink -> https://github.com/jeyong/mavlink
 5. git commit (myproject)
 ```bash
 > cd myproject
-> git commit
+> git commit -am "change submodule url and revision"
 > git push
 ```
