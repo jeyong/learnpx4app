@@ -27,6 +27,6 @@ nsh> help
 mypublish
 ....
 
-nsh> mypublish
+nsh> mypublish &
 
 ```
