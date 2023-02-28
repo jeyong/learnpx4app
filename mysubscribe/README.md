@@ -27,6 +27,6 @@ nsh> help
 mysubscribe
 ....
 
-nsh> mysubscribe
+nsh> mysubscribe &
 
 ```
